@@ -1,5 +1,5 @@
 from config import *
-from config import OWNER_ID, BOT_USERNAME
+from config import OWNER_ID, BOT_USERNAME, EVENT_LOGS as ERROR_LOG
 import logging
 import os
 import sys
