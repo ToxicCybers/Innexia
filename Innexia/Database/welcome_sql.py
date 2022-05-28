@@ -2,8 +2,8 @@ import random
 import threading
 from typing import Union
 
-from Yone.Handlers.msg_types import Types
-from Yone.Database import BASE, SESSION
+from Innexia.Handlers.msg_types import Types
+from Innexia.Database import BASE, SESSION
 from sqlalchemy import BigInteger, Boolean, Column, String, UnicodeText
 
 DEFAULT_WELCOME = "Hey {first}, how are you?"
