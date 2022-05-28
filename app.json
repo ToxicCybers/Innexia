@@ -1,16 +1,16 @@
 {
-      "name": "Emiko Robot",
+      "name": "InnexiaBot",
       "description": "A Powerful  Telegram group management bot with anime theme.",
       "keywords": [
          "telegram",
          "advance",
          "group",
          "manager",
-         "naorobot"
+         "InnexiaBot"
       ],
     
-   "logo":    "https://telegra.ph/file/35e56ba7eace7332356ad.jpg",  
-   "repository": "https://github.com/kennedy-ex/https://github.com/kennedy-ex/EmikoRobot",
+   "logo":    "https://te.legra.ph/file/5bd6f09fff2ac88c5a554.jpg",  
+   "repository": "https://github.com/ToxicCyber/https://github.com/ToxicCyber/Innexia",
    "addons": [
           {
          "options": {
