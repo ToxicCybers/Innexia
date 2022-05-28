@@ -128,7 +128,7 @@ dispatcher = updater.dispatcher
 ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 aiohttpsession = ClientSession()
 # ARQ Client
-log.info("[ARQ CLIENT] Checking Arq Connections...")
+LOGGER.info("[ARQ CLIENT] Checking Arq Connections...")
 
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 
