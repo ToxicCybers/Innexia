@@ -1,3 +1,19 @@
+# Config files, logs and stuff
+EmikoRobot/modules/helper_funcs/temp.txt
+EmikoRobot/elevated_users.json
+EmikoRobot/config.py
+EmikoRobot/config.ini
+log.txt
+kangsticker.png
+updates.txt
+start_service.bat
+
+# Session files
+EmikoRobot/*.session
+EmikoRobot/*.session-journal
+Emiko.session-journal
+*.session
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +143,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VS code and shit
+*.pyc
+.idea/
+.project
+.pydevproject
+.directory
+.vscode
