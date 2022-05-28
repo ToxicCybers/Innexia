@@ -3,7 +3,7 @@ from io import BytesIO
 import random
 from typing import Optional
 
-import EmikoRobot.Database.notes_sql as sql
+import Innexia.Database.notes_sql as sql
 from Innexia import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
 from Innexia.modules.disable import DisableAbleCommandHandler
 from Innexia.modules.helper_funcs.handlers import MessageHandlerChecker
