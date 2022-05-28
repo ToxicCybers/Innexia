@@ -27,7 +27,7 @@ from Innexia.modules.helper_funcs.string_handling import (
     markdown_parser,
 )
 from Innexia.modules.log_channel import loggable
-from Innexia.modules.sql.global_bans_sql import is_user_gbanned
+from Innexia.Database.global_bans_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
