@@ -4,7 +4,7 @@ from sqlalchemy import Column, String, UnicodeText, Boolean, distinct, func
 from sqlalchemy.sql.sqltypes import BigInteger
 
 
-from Innexia.Handlers.msg_types import Types
+from Innexia.modules.helper_funcs.msg_types import Types
 from Innexia.Database import BASE, SESSION
 
 
