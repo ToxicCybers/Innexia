@@ -1,7 +1,7 @@
 import threading
 
-from Yone import dispatcher
-from Yone.Database import BASE, SESSION
+from Innexia import dispatcher
+from Innexia.Database import BASE, SESSION
 from sqlalchemy import (
     Column,
     ForeignKey,
