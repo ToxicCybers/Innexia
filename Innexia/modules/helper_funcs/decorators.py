@@ -1,4 +1,4 @@
-from EmikoRobot.modules.disable import (
+from Innexia.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
@@ -9,7 +9,7 @@ from telegram.ext import (
     InlineQueryHandler,
 )
 from telegram.ext.filters import MessageFilter
-from EmikoRobot import dispatcher as d, LOGGER
+from Innexia import dispatcher as d, LOGGER
 from typing import Optional, Union, List
 
 
