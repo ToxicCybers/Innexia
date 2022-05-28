@@ -2,7 +2,7 @@ import random
 import threading
 from typing import Union
 
-from Innexia.Handlers.msg_types import Types
+from Innexia.modules.helper_funcs.msg_types import Types
 from Innexia.Database import BASE, SESSION
 from sqlalchemy import BigInteger, Boolean, Column, String, UnicodeText
 
