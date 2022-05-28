@@ -1,4 +1,5 @@
 from config import *
+from config import OWNER_ID
 import logging
 import os
 import sys
