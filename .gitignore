@@ -1,16 +1,16 @@
 # Config files, logs and stuff
-EmikoRobot/modules/helper_funcs/temp.txt
-EmikoRobot/elevated_users.json
-EmikoRobot/config.py
-EmikoRobot/config.ini
+Innexi/modules/helper_funcs/temp.txt
+Innexia/elevated_users.json
+Innexia/config.py
+Innexia/config.ini
 log.txt
 kangsticker.png
 updates.txt
 start_service.bat
 
 # Session files
-EmikoRobot/*.session
-EmikoRobot/*.session-journal
+Innexia/*.session
+Innexia/*.session-journal
 Emiko.session-journal
 *.session
 
