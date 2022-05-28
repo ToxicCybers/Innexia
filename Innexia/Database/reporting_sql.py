@@ -1,7 +1,7 @@
 import threading
 from typing import Union
 
-from Yone.Database import BASE, SESSION
+from Innexia.Database import BASE, SESSION
 from sqlalchemy import Boolean, Column, BigInteger, String
 
 
