@@ -1,8 +1,7 @@
 import os
-from dotenv import load_dotenv
 from os import environ
 
-load_dotenv("config.env")
+
 
 TOKEN = os.environ.get("TOKEN", None)
 INFOPIC = bool(os.environ.get("INFOPIC", False))
