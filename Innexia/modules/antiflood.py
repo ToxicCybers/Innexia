@@ -12,7 +12,7 @@ from Innexia.modules.helper_funcs.chat_status import (
     user_admin_no_reply,
 )
 from Innexia.modules.log_channel import loggable
-from Innexia.modules.sql import antiflood_sql as sql
+from Innexia.Database import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
