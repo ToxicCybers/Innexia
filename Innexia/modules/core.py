@@ -9,7 +9,7 @@ from EmikoRobot import OWNER_ID, DEV_USERS
 from EmikoRobot import TEMP_DOWNLOAD_DIRECTORY as path
 from EmikoRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
-water = './EmikoRobot/resources/emiko.png'
+water = './Downloads/innexia.png'
 client = tbot
 
 @register(pattern=r"^/send ?(.*)")
@@ -21,7 +21,7 @@ async def Prof(event):
     thumb = water
     message_id = event.message.id
     input_str = event.pattern_match.group(1)
-    the_plugin_file = "./EmikoRobot/modules/{}.py".format(input_str)
+    the_plugin_file = "./Innexia/modules/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
      message_id = event.message.id
      await event.client.send_file(
@@ -33,4 +33,4 @@ async def Prof(event):
              reply_to=message_id,
          )
     else:
-        await event.reply("No File Found!")
+        await event.reply("No File Found, Report It To Support!")
