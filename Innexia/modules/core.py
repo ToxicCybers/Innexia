@@ -1,13 +1,13 @@
-from EmikoRobot import telethn as tbot
-from EmikoRobot.events import register
+from Innexia import telethn as tbot
+from Innexia.events import register
 import os
 import asyncio
 import os
 import time
 from datetime import datetime
-from EmikoRobot import OWNER_ID, DEV_USERS
-from EmikoRobot import TEMP_DOWNLOAD_DIRECTORY as path
-from EmikoRobot import TEMP_DOWNLOAD_DIRECTORY
+from Innexia import OWNER_ID, DEV_USERS
+from Innexia import TEMP_DOWNLOAD_DIRECTORY as path
+from Innexia import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
 water = './Downloads/innexia.png'
 client = tbot
