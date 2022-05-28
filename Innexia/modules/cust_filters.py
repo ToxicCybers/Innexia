@@ -13,23 +13,23 @@ from telegram.ext import (
     Filters,
 )
 from telegram.utils.helpers import mention_html, escape_markdown
-from EmikoRobot import dispatcher, LOGGER, DRAGONS
-from EmikoRobot.modules.disable import DisableAbleCommandHandler
-from EmikoRobot.modules.helper_funcs.handlers import MessageHandlerChecker
-from EmikoRobot.modules.helper_funcs.chat_status import user_admin
-from EmikoRobot.modules.helper_funcs.extraction import extract_text
-from EmikoRobot.modules.helper_funcs.filters import CustomFilters
-from EmikoRobot.modules.helper_funcs.misc import build_keyboard_parser
-from EmikoRobot.modules.helper_funcs.msg_types import get_filter_type
-from EmikoRobot.modules.helper_funcs.string_handling import (
+from Innexia import dispatcher, LOGGER, DRAGONS
+from Innexia.modules.disable import DisableAbleCommandHandler
+from Innexia.modules.helper_funcs.handlers import MessageHandlerChecker
+from Innexia.modules.helper_funcs.chat_status import user_admin
+from Innexia.modules.helper_funcs.extraction import extract_text
+from Innexia.modules.helper_funcs.filters import CustomFilters
+from Innexia.modules.helper_funcs.misc import build_keyboard_parser
+from Innexia.modules.helper_funcs.msg_types import get_filter_type
+from Innexia.modules.helper_funcs.string_handling import (
     split_quotes,
     button_markdown_parser,
     escape_invalid_curly_brackets,
     markdown_to_html,
 )
-from EmikoRobot.modules.sql import cust_filters_sql as sql
-from EmikoRobot.modules.connection import connected
-from EmikoRobot.modules.helper_funcs.alternate import send_message, typing_action
+from Innexia.Database import cust_filters_sql as sql
+from Innexia.modules.connection import connected
+from Innexia.modules.helper_funcs.alternate import send_message, typing_action
 
 HANDLER_GROUP = 10
 
