@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String, BigInteger
 
-from Yone.Database import BASE, SESSION
+from Innexia.Database import BASE, SESSION
 
 
 class Approvals(BASE):
