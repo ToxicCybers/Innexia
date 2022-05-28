@@ -30,6 +30,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     from config import *
 
     TOKEN = TOKEN
+    OWNER_ID = OWNER_ID
 
     try:
         OWNER_ID = int(OWNER_ID)
