@@ -1,5 +1,5 @@
 from config import *
-from config import OWNER_ID
+from config import OWNER_ID, BOT_USERNAME
 import logging
 import os
 import sys
@@ -31,8 +31,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     from config import *
 
     TOKEN = TOKEN
-    OWNER_ID = OWNER_ID
-    BOT_USERNAME = BOT_USERNAME
+    OWNER_ID = OWNER_ID    
     try:
         OWNER_ID = int(OWNER_ID)
     except ValueError:
@@ -69,7 +68,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     CERT_PATH = CERT_PATH
     API_ID = API_ID
     API_HASH = API_HASH
-
+    BOT_USERNAME = BOT_USERNAME
     DB_URI = SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = MONGO_DB_URI
     ARQ_API = ARQ_API_KEY
