@@ -22,22 +22,22 @@ from pyrogram.types import (CallbackQuery,
                             InputTextMessageContent)
 from search_engine_parser import GoogleSearch
 
-from EmikoRobot import (
+from Innexia import (
     DEV_USERS,
     EVENT_LOGS, 
     BOT_USERNAME,
     ubot2,
 )
-from EmikoRobot import pbot as app 
-from EmikoRobot import arq
-from EmikoRobot.services.keyboard import Ikb
-from EmikoRobot.utils.pluginhelper import convert_seconds_to_minutes as time_convert, fetch
-from EmikoRobot.services.tasks import _get_tasks_text, all_tasks, rm_task
-from EmikoRobot.services.types import InlineQueryResultCachedDocument
-from EmikoRobot.modules.info import get_chat_info, get_user_info
-from EmikoRobot.modules.music import download_youtube_audio
-from EmikoRobot.utils.functions import test_speedtest
-from EmikoRobot.utils.pastebin import paste
+from Innexia import pbot as app 
+from Innexia import arq
+from Innexia.services.keyboard import Ikb
+from Innexia.utils.pluginhelper import convert_seconds_to_minutes as time_convert, fetch
+from Innexia.services.tasks import _get_tasks_text, all_tasks, rm_task
+from Innexia.services.types import InlineQueryResultCachedDocument
+from Innexia.modules.info import get_chat_info, get_user_info
+from Innexia.modules.music import download_youtube_audio
+from Innexia.utils.functions import test_speedtest
+from Innexia.utils.pastebin import paste
 
 MESSAGE_DUMP_CHAT = EVENT_LOGS
 
