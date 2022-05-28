@@ -32,7 +32,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 
     TOKEN = TOKEN
     OWNER_ID = OWNER_ID
-
+    BOT_USERNAME = BOT_USERNAME
     try:
         OWNER_ID = int(OWNER_ID)
     except ValueError:
