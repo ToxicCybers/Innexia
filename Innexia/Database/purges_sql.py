@@ -1,6 +1,6 @@
 import threading
 
-from Yone.Database import BASE, SESSION
+from Innexia.Database import BASE, SESSION
 from sqlalchemy import (Column, BigInteger, String)
 
 
