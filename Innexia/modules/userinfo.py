@@ -18,7 +18,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
-from EmikoRobot import (
+from Innexia import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -31,16 +31,16 @@ from EmikoRobot import (
     StartTime,
     SUPPORT_CHAT,
 )
-from EmikoRobot.__main__ import STATS, TOKEN, USER_INFO
-from EmikoRobot.modules.sql import SESSION
-import EmikoRobot.modules.sql.userinfo_sql as sql
-from EmikoRobot.modules.disable import DisableAbleCommandHandler
-from EmikoRobot.modules.sql.global_bans_sql import is_user_gbanned
-from EmikoRobot.modules.sql.afk_sql import is_afk, set_afk
-from EmikoRobot.modules.sql.users_sql import get_user_num_chats
-from EmikoRobot.modules.helper_funcs.chat_status import sudo_plus
-from EmikoRobot.modules.helper_funcs.extraction import extract_user
-from EmikoRobot import telethn
+from Innexia.__main__ import STATS, TOKEN, USER_INFO
+from Innexia.Database import SESSION
+import Innexia.Database.userinfo_sql as sql
+from Innexia.modules.disable import DisableAbleCommandHandler
+from Innexia.Database.global_bans_sql import is_user_gbanned
+from Innexia.Database.afk_sql import is_afk, set_afk
+from Innexia.Database.users_sql import get_user_num_chats
+from Innexia.modules.helper_funcs.chat_status import sudo_plus
+from Innexia.modules.helper_funcs.extraction import extract_user
+from Innexia import telethn
 
 def no_by_per(totalhp, percentage):
     """
