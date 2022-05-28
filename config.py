@@ -50,4 +50,4 @@ WOLVES = set(int(x) for x in os.environ.get("WOLVES", "").split())
 TIGERS = set(int(x) for x in os.environ.get("TIGERS", "").split())
 ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
 OWNER_ID = os.environ.get("OWNER_ID", None) 
- 
+BOT_USERNAME = os.environ.get("BOT_USERNAME", None) 
