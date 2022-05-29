@@ -449,7 +449,7 @@ def stats(update: Update, context: CallbackContext):
     lol = " Geting Stats please wait... "
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     result += "\n<b>╘═━「 Powered By @RexomaSupport 」</b>"    
-    update.effective_message.send_text(
+    update.effective_message.reply_text(
         stats, 
         parse_mode=ParseMode.HTML, 
         disable_web_page_preview=True
