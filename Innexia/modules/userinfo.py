@@ -446,10 +446,16 @@ def set_about_me(update: Update, context: CallbackContext):
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
     stats = "<b>╔═━「 Current Statistics 」</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    lol = " Geting Stats please wait... "
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     result += "\n<b>╘═━「 Powered By @RexomaSupport 」</b>"
     update.effective_message.reply_text(
-        result,
+        lol, 
+        parse_mode=ParseMode.HTML, 
+        disable_web_page_preview=True
+   ), 
+   update.effective_message.edit_text(
+        stats, 
         parse_mode=ParseMode.HTML, 
         disable_web_page_preview=True
    )
