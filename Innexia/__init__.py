@@ -38,7 +38,6 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
         raise Exception("Your OWNER_ID variable is not a valid integer.")
 
     JOIN_LOGGER = JOIN_LOGGER
-    OWNER_USERNAME = OWNER_USERNAME
     ALLOW_CHATS = ALLOW_CHATS
     try:
         DRAGONS = set(int(x) for x in DRAGONS or [])
@@ -69,6 +68,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     API_ID = API_ID
     API_HASH = API_HASH
     BOT_USERNAME = BOT_USERNAME
+    OWNER_USERNAME = OWNER_USERNAME
     DB_URI = SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = MONGO_DB_URI
     ARQ_API = ARQ_API_KEY
