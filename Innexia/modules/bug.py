@@ -70,7 +70,7 @@ async def bug(_, msg: Message):
             f"<b>ʙᴜɢ ʀᴇᴘᴏʀᴛ : {bugs}</b>\n\n"
             "✅ <b>ᴛʜᴇ ʙᴜɢ ᴡᴀs sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴘᴏʀᴛᴇᴅ ᴛᴏ ᴛʜᴇ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ!</b>",
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("C ", callback_data="close_reply")]]
+                [[InlineKeyboardButton("Cʟᴏsᴇ ", callback_data="close_reply")]]
             ),
         )
 
