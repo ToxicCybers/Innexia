@@ -454,7 +454,7 @@ def stats(update: Update, context: CallbackContext):
         parse_mode=ParseMode.HTML, 
         disable_web_page_preview=True
    ), 
-   update.effective_message.edit_text(
+    update.effective_message.edit_text(
         stats, 
         parse_mode=ParseMode.HTML, 
         disable_web_page_preview=True
