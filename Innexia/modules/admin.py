@@ -389,10 +389,8 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
             "Demote", callback_data="demote_({})".format(user_member.user.id))
     ]])
     if not title:
-        bot.sendMessage(
-        chat.id,
-        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",
-        parse_mode=ParseMode.HTML,
+        message.reply_text(
+        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",        
     )
         return
 
