@@ -329,7 +329,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     chat = update.effective_chat
     user = update.effective_user
-
+    user_id, title = extract_user_and_text(message, args)
     promoter = chat.get_member(user.id)
 
     if (
@@ -388,12 +388,32 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         InlineKeyboardButton(
             "Demote", callback_data="demote_({})".format(user_member.user.id))
     ]])
-
-    bot.sendMessage(
+    if not title:
+        bot.sendMessage(
         chat.id,
         f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",
         parse_mode=ParseMode.HTML,
     )
+        return
+
+    if len(title) > 16:
+        message.reply_text(
+            "The title length is longer than 16 characters.\nTruncating it to 16 characters.",
+        )
+    try:
+        bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
+    except BadRequest:
+        message.reply_text(
+            "Either they aren't promoted by me or you set a title text that is impossible to set."
+        )
+        return
+
+    bot.sendMessage(
+        chat.id,
+        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",        
+        f"With Title <code>{html.escape(title[:16])}</code>!",
+        parse_mode=ParseMode.HTML,
+    )  
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
