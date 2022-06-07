@@ -408,8 +408,10 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",        
-        f"With Title <code>{html.escape(title[:16])}</code>!",
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#FULLPROMOTED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
         parse_mode=ParseMode.HTML,
     )  
 
@@ -418,6 +420,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         f"#FULLPROMOTED\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+        f"<b>Title:</b> {title}"
     )
 
     return log_message
