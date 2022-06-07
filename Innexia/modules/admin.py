@@ -408,10 +408,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#FULLPROMOTED\n"
-        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
+        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>\n<b>With Title {title} </b>",
         parse_mode=ParseMode.HTML,
     )  
 
