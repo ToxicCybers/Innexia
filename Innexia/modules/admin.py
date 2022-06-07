@@ -390,8 +390,9 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     ]])
     if not title:
         message.reply_text(
-        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",        
-    )
+        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",
+        parse_mode=ParseMode.HTML,     
+    )    
         return
 
     if len(title) > 16:
@@ -406,8 +407,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         )
         return
 
-    bot.sendMessage(
-        chat.id,
+    message.reply_text(
         f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",        
         f"With Title <code>{html.escape(title[:16])}</code>!",
         parse_mode=ParseMode.HTML,
