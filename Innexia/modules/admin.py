@@ -416,11 +416,11 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     )  
 
     log_message = (
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#FULLPROMOTED\n"
-        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}\n"
-        f"<b>Title:</b> {title}"
+        f"<b>{html.escape(chat.title)}:</b>\n", 
+        f"#FULLPROMOTED\n", 
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n", 
+        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}\n", 
+        f"<b>Title:</b> {title}", 
     )
 
     return log_message
