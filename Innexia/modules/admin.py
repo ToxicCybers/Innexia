@@ -170,7 +170,7 @@ def promote(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     chat = update.effective_chat
     user = update.effective_user
-
+    user_id, title = extract_user_and_text(message, args)   
     promoter = chat.get_member(user.id)
 
     if (
@@ -224,11 +224,35 @@ def promote(update: Update, context: CallbackContext) -> str:
             message.reply_text("An error occured while promoting.")
         return
 
-    bot.sendMessage(
-        chat.id,
-        f"Promoting a user in <b>{chat.title}</b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
+    keyboard = InlineKeyboardMarkup([[
+        InlineKeyboardButton(
+            "Demote", callback_data="demote_({})".format(user_member.user.id))
+    ]])
+    if not title:
+        message.reply_text(
+        f"promoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",
+        reply_markup=keyboard, 
+        parse_mode=ParseMode.HTML,     
+    )    
+        return
+
+    if len(title) > 16:
+        message.reply_text(
+            "The title length is longer than 16 characters.\nTruncating it to 16 characters.",
+        )
+    try:
+        bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
+    except BadRequest:
+        message.reply_text(
+            "Either they aren't promoted by me or you set a title text that is impossible to set."
+        )
+        return
+
+    message.reply_text(
+        f"promoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)} With Title {title} </b>",
+        reply_markup=keyboard, 
         parse_mode=ParseMode.HTML,
-    )
+    )  
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
@@ -408,7 +432,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>\n<b>With Title {title} </b>",
+        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)} With Title {title} </b>",
         parse_mode=ParseMode.HTML,
     )  
 
