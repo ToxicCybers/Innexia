@@ -230,7 +230,7 @@ def promote(update: Update, context: CallbackContext) -> str:
     ]])
     if not title:
         message.reply_text(
-        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)}</b>",        
+        f"<b>Successfully Promoted</b>\n<b> {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b> In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>",        
         parse_mode=ParseMode.HTML,     
     )    
         return
@@ -248,112 +248,13 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} with title {title}</b>",        
+        f"<b>Successfully Promoted</b>\n<b> {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b> In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b> with title {title}</b>\n<b>",        
         parse_mode=ParseMode.HTML,
     )  
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#PROMOTED\n"
-        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
-    )
-
-    return log_message
-
-
-@connection_status
-@bot_admin
-@can_promote
-@user_admin
-@loggable
-def lowpromote(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
-    message = update.effective_message
-    chat = update.effective_chat
-    user = update.effective_user
-    promoter = chat.get_member(user.id)
-    promoter = chat.get_member(user.id)
-
-    if (
-        not (promoter.can_promote_members or promoter.status == "creator")
-        and user.id not in DRAGONS
-    ):
-        message.reply_text("You don't have the necessary rights to do that!")
-        return
-
-    user_id = extract_user(message, args)
-
-    if not user_id:
-        message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect..",
-        )
-        return
-
-    try:
-        user_member = chat.get_member(user_id)
-    except:
-        return
-
-    if user_member.status in ('administrator', 'creator'):
-        message.reply_text("How am I meant to promote someone that's already an admin?")
-        return
-
-    if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
-        return
-
-    # set same perms as bot - bot can't assign higher perms than itself!
-    bot_member = chat.get_member(bot.id)
-
-    try:
-        bot.promoteChatMember(
-            chat.id,
-            user_id,
-            can_delete_messages=bot_member.can_delete_messages,
-            can_invite_users=bot_member.can_invite_users,
-            can_pin_messages=bot_member.can_pin_messages,
-        )
-    except BadRequest as err:
-        if err.message == "User_not_mutual_contact":
-            message.reply_text("I can't promote someone who isn't in the group.")
-        else:
-            message.reply_text("An error occured while promoting.")
-        return
-
-    keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton(
-            "Demote", callback_data="demote_({})".format(user_member.user.id))
-    ]])
-    if not title:
-        message.reply_text(
-        f"<b>SuccessfullyPromoted</b>\n<b>{mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b>with low power</b>",        
-        parse_mode=ParseMode.HTML,     
-    )    
-        return
-
-    if len(title) > 16:
-        message.reply_text(
-            "The title length is longer than 16 characters.\nTruncating it to 16 characters.",
-        )
-    try:
-        bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
-    except BadRequest:
-        message.reply_text(
-            "Either they aren't promoted by me or you set a title text that is impossible to set."
-        )
-        return
-
-    message.reply_text(
-        f"<b>SuccessfullyPromoted</b>\n<b>{mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b>as #LOWERADMIN with title {title}</b>",        
-        parse_mode=ParseMode.HTML,
-    )
-
-    log_message = (
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#LOWPROMOTED\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
     )
@@ -434,7 +335,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     ]])
     if not title:
         message.reply_text(
-        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} with full power</b>",        
+        f"<b>Successfully Promoted</b>\n<b>{mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b> #FULLPROMOTED </b>",        
         parse_mode=ParseMode.HTML,     
     )    
         return
@@ -452,7 +353,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} as #CO-OWNER with title {title}</b>",        
+        f"<b>Successfully Promoted</b>\n<b> {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b> In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b> with title {title}</b>\n<b> #FULLPROMOTED</b>",        
         parse_mode=ParseMode.HTML,
     )  
 
@@ -1026,7 +927,6 @@ INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
 
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote)
 FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote)
-LOW_PROMOTE_HANDLER = DisableAbleCommandHandler("lowpromote", lowpromote)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
@@ -1044,7 +944,6 @@ dispatcher.add_handler(PINNED_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(FULLPROMOTE_HANDLER)
-dispatcher.add_handler(LOW_PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
@@ -1060,8 +959,7 @@ __command_list__ = [
     "admins", 
     "invitelink", 
     "promote", 
-    "fullpromote",
-    "lowpromote",
+    "fullpromote",    
     "demote", 
     "admincache"
 ]
@@ -1078,7 +976,6 @@ __handlers__ = [
     INVITE_HANDLER,
     PROMOTE_HANDLER,
     FULLPROMOTE_HANDLER,
-    LOW_PROMOTE_HANDLER,
     DEMOTE_HANDLER,
     SET_TITLE_HANDLER,
     ADMIN_REFRESH_HANDLER,
