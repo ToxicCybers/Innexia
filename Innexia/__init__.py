@@ -9,9 +9,7 @@ from redis import StrictRedis
 
 import telegram.ext as tg
 from pyrogram import Client, errors
-from telethon import TelegramClient
 from telethon.sessions import MemorySession
-from telethon.sessions import StringSession
 from Python_ARQ import ARQ
 from aiohttp import ClientSession
 
@@ -124,7 +122,6 @@ updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 pbot = Client("innexiaBot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
-ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 aiohttpsession = ClientSession()
 # ARQ Client
 LOGGER.info("[ARQ CLIENT] Checking Arq Connections...")
