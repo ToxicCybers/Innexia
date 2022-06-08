@@ -274,7 +274,7 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     chat = update.effective_chat
     user = update.effective_user
-
+    promoter = chat.get_member(user.id)
     promoter = chat.get_member(user.id)
 
     if (
@@ -329,7 +329,7 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
     ]])
     if not title:
         message.reply_text(
-        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} with low power</b>",        
+        f"<b>SuccessfullyPromoted</b>\n<b>{mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b>with low power</b>",        
         parse_mode=ParseMode.HTML,     
     )    
         return
@@ -347,7 +347,7 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} as #LOWADMIN with title {title}</b>",        
+        f"<b>SuccessfullyPromoted</b>\n<b>{mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b>as #LOWERADMIN with title {title}</b>",        
         parse_mode=ParseMode.HTML,
     )
 
