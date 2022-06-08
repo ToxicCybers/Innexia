@@ -224,14 +224,13 @@ def promote(update: Update, context: CallbackContext) -> str:
             message.reply_text("An error occured while promoting.")
         return
 
-    keyboard = InlineKeyboardMarkup([[
+     keyboard = InlineKeyboardMarkup([[
         InlineKeyboardButton(
             "Demote", callback_data="demote_({})".format(user_member.user.id))
     ]])
     if not title:
         message.reply_text(
-        f"promoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",
-        reply_markup=keyboard, 
+        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)}</b>",        
         parse_mode=ParseMode.HTML,     
     )    
         return
@@ -249,8 +248,7 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"promoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)} With Title {title} </b>",
-        reply_markup=keyboard, 
+        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} with title {title}</b>",        
         parse_mode=ParseMode.HTML,
     )  
 
@@ -325,9 +323,31 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
             message.reply_text("An error occured while promoting.")
         return
 
-    bot.sendMessage(
-        chat.id,
-        f"Lowpromoting a user in <b>{chat.title}<b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
+    keyboard = InlineKeyboardMarkup([[
+        InlineKeyboardButton(
+            "Demote", callback_data="demote_({})".format(user_member.user.id))
+    ]])
+    if not title:
+        message.reply_text(
+        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} with low power</b>",        
+        parse_mode=ParseMode.HTML,     
+    )    
+        return
+
+    if len(title) > 16:
+        message.reply_text(
+            "The title length is longer than 16 characters.\nTruncating it to 16 characters.",
+        )
+    try:
+        bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
+    except BadRequest:
+        message.reply_text(
+            "Either they aren't promoted by me or you set a title text that is impossible to set."
+        )
+        return
+
+    message.reply_text(
+        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} as #LOWADMIN with title {title}</b>",        
         parse_mode=ParseMode.HTML,
     )
 
@@ -414,7 +434,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     ]])
     if not title:
         message.reply_text(
-        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)}</b>",
+        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} with full power</b>",        
         parse_mode=ParseMode.HTML,     
     )    
         return
@@ -432,7 +452,7 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"Fullpromoting a user in <b>{chat.title}</b>\n\n<b>User: {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>Promoter: {mention_html(user.id, user.first_name)} With Title {title} </b>",
+        f"<b>SuccessfullyPromoted {mention_html(user_member.user.id, user_member.user.first_name)} In Chat {chat.title} By {mention_html(user.id, user.first_name)} as #CO-OWNER with title {title}</b>",        
         parse_mode=ParseMode.HTML,
     )  
 
