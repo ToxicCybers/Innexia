@@ -251,7 +251,7 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     message.reply_text(
-        f"<b>Successfully Promoted</b>\n<b> {mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b> In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)}</b>\n<b> with title {title}</b>",        
+        f"<b>Successfully Promoted</b>\n<b>{mention_html(user_member.user.id, user_member.user.first_name)}</b>\n<b>In Chat {chat.title}</b>\n<b>By {mention_html(user.id, user.first_name)} with title {title}</b>",        
         parse_mode=ParseMode.HTML,
     )  
 
