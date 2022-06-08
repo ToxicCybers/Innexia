@@ -224,7 +224,7 @@ def promote(update: Update, context: CallbackContext) -> str:
             message.reply_text("An error occured while promoting.")
         return
 
-     keyboard = InlineKeyboardMarkup([[
+    keyboard = InlineKeyboardMarkup([[
         InlineKeyboardButton(
             "Demote", callback_data="demote_({})".format(user_member.user.id))
     ]])
